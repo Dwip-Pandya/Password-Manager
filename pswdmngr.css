@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,700;1,300&family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif, 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    color: #333;
+    line-height: 1.6;
+    transition: background 0.5s ease;
+}
+
+body:hover {
+    background: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+}
+
+/* Navigation Bar */
+nav {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 12px 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    margin: 0 23px;
+    font-weight: 800;
+    font-size: 28px;
+    cursor: pointer;
+    transition: transform 0.4s ease, color 0.4s ease;
+    background: linear-gradient(120deg, #ffcc00, #ff5733);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.logo:hover {
+    transform: scale(1.2) rotate(-3deg);
+    color: #f6d365;
+}
+
+ul {
+    display: flex;
+    margin: 0 23px;
+    align-items: center;
+}
+
+ul > li {
+    list-style: none;
+    margin: 0 15px;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+ul > li::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #ffcc00;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+}
+
+ul > li:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+ul > li:hover {
+    color: #ffcc00;
+    transform: translateY(-3px);
+}
+
+/* Main Content */
+.container {
+    max-width: 80vw;
+    margin: 30px auto;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-out;
+    backdrop-filter: blur(10px);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1, h2, h3 {
+    margin: 23px 0;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1.5px;
+}
+
+h1 {
+    font-size: 40px;
+    text-transform: uppercase;
+    color: #333;
+}
+
+h2 {
+    font-size: 32px;
+    color: #444;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+h2::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: #ffcc00;
+    bottom: 0;
+    left: 0;
+    transition: width 0.5s ease;
+}
+
+h2:hover::before {
+    width: 100%;
+}
+
+p {
+    line-height: 1.8;
+    color: #666;
+    animation: textSlide 1s ease;
+}
+
+@keyframes textSlide {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    animation: slideIn 1s ease;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+table, th, td {
+    border: 2px solid #333;
+    padding: 12px;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+th {
+    background: linear-gradient(120deg, #ffcc00, #ff5733);
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+td {
+    background: rgba(255, 255, 255, 0.9);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Form Styling */
+form {
+    margin-top: 20px;
+    animation: fadeIn 1.5s ease;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+    color: #444;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #ffcc00;
+    box-shadow: 0 0 8px rgba(255, 204, 0, 0.8);
+    outline: none;
+}
+
+/* Button Styling */
+.btn {
+    padding: 12px 25px;
+    background: black;
+    color: white;
+    font-weight: 900;
+    border: 2px solid gray;
+    border-radius: 8px;
+    margin: 25px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn:hover {
+    background-color: black;
+    transform: scale(1.08) rotate(-2deg);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Small Button Styling */
+.btnsm {
+    padding: 8px 17px;
+    background: black;
+    color: white;
+    font-weight: 900;
+    border: 2px solid gray;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btnsm:hover {
+    background-color: #ffcc00;
+    transform: scale(1.05);
+}
+
+/* Image Styling */
+img {
+    cursor: pointer;
+    position: relative;
+    bottom: 7px;
+    width: 15px;
+    height: 13px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+img:hover {
+    transform: rotate(20deg);
+    filter: brightness(1.5);
+}
+
+/* Alert Message */
+#alert {
+    display: none;
+    color: green;
+    font-weight: bold;
+    margin-left: 10px;
+    animation: blink 1s step-start 0s infinite, shake 0.5s;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
